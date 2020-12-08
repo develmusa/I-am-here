@@ -10,13 +10,13 @@ from utils.system_tray import SystemTray
 class App(QApplication):
     def __init__(self, sys_argv):
         super(App, self).__init__(sys_argv)
-        self.setQuitOnLastWindowClosed(True)
+        self.setQuitOnLastWindowClosed(False)
 
         # Connect everything together
         self.model = Model()
         self.main_ctrl = MainController(self.model)
         self.main_view = MainView(self.model, self.main_ctrl)
-        self.system_tray = SystemTray(self, self.model, self.main_ctrl)
+        self.system_tray = SystemTray(self, self.model, self.main_ctrl, self.main_view)
         self.icon_helper = IconHelper(self, self.system_tray, self.model)
 
         self.main_view.show()
