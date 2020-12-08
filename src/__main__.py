@@ -16,7 +16,7 @@ class App(QApplication):
         self.model = Model()
         self.main_ctrl = MainController(self.model)
         self.main_view = MainView(self.model, self.main_ctrl)
-        self.system_tray = SystemTray()
+        self.system_tray = SystemTray(self, self.model, self.main_ctrl)
         self.icon_helper = IconHelper(self, self.system_tray, self.model)
 
         self.main_view.show()
