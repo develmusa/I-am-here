@@ -20,6 +20,7 @@ class App(QApplication):
         self.icon_helper = IconHelper(self, self.system_tray, self.model)
 
         self.main_view.show()
+        self.aboutToQuit.connect(lambda: self.model._dont_sleep.stop())
 
 if __name__ == '__main__':
     app = App(sys.argv)

@@ -27,8 +27,6 @@ class MainView(QMainWindow):
         # listen for model event signals
         self._model.dont_sleep_started_changed.connect(self.on_dont_sleep_started_changed)
 
-        
-
     @pyqtSlot(int)
     def on_amount_changed(self, value):
         self._ui.spinBox.setValue(value)

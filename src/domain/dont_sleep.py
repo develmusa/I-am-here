@@ -8,6 +8,7 @@ class DontSleep():
         self._idle_time = 5
         self._move_distance = 10
         self._last_position = pyautogui.position()
+        self._timer = None
 
     @property
     def idle_time(self):
@@ -29,7 +30,8 @@ class DontSleep():
                 self.move()
             else:
                 self._last_position = position_now
-            threading.Timer(self._idle_time, self.stay_awake).start()
+            self._timer = threading.Timer(self._idle_time, self.stay_awake)
+            self._timer.start()
 
     def start(self):
         self._is_running = True
@@ -37,3 +39,5 @@ class DontSleep():
 
     def stop(self):
         self._is_running = False
+        if self._timer:
+            self._timer.cancel()
