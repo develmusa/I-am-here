@@ -23,7 +23,6 @@ class DontSleep():
         pyautogui.moveRel(0, self._move_distance)        
 
     def stay_awake(self):
-        print("stay_awake")
         if self._is_running:
             position_now = pyautogui.position()
             if self._last_position == position_now:
