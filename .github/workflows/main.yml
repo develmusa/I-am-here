@@ -39,7 +39,7 @@ jobs:
         run: |
           pyinstaller src/__main__.py --name iamhere --onefile -p src --add-data "src/ressources/*:ressources"
       - name: Deploy Pre-Release
-      - uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
